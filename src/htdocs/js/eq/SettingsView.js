@@ -66,7 +66,7 @@ define([
 					}
 				]
 			});
-			section.appendChild(_autoupdateView.el);
+			section.appendChild(_autoupdateView._el);
 
 			_feedView = new SettingView({
 				'settings': _options.settings,
@@ -88,7 +88,7 @@ define([
 			});
 
 
-			section.appendChild(_feedView.el);
+			section.appendChild(_feedView._el);
 
 			var _searchContainer = section.appendChild(
 					document.createElement('div'));
@@ -118,7 +118,7 @@ define([
 				'key': 'sort',
 				'options': _options.settings.getOptions('sorts')
 			});
-			section.appendChild(_sortView.el);
+			section.appendChild(_sortView._el);
 
 			_restrictListToMapView = new ToggleSettingView({
 				'settings': _options.settings,
@@ -130,7 +130,7 @@ define([
 					}
 				]
 			});
-			section.appendChild(_restrictListToMapView.el);
+			section.appendChild(_restrictListToMapView._el);
 
 
 			// MAP LAYERS
@@ -141,14 +141,14 @@ define([
 				'key': 'basemap',
 				'options': _options.settings.getOptions('basemaps')
 			});
-			section.appendChild(_basemapView.el);
+			section.appendChild(_basemapView._el);
 
 			_overlaysView = new ToggleSettingView({
 				'settings': _options.settings,
 				'key': 'overlays',
 				'options': _options.settings.getOptions('overlays')
 			});
-			section.appendChild(_overlaysView.el);
+			section.appendChild(_overlaysView._el);
 
 
 			// TIME ZONE
@@ -174,7 +174,7 @@ define([
 					}
 				]
 			});
-			section.appendChild(_timezoneView.el);
+			section.appendChild(_timezoneView._el);
 
 
 			// DONE
