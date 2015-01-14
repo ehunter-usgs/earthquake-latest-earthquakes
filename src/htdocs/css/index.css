@@ -24,6 +24,8 @@
 
 @import url("Print.css");
 
+@import url("/hazdev-template/dist/htdocs/site/earthquake/index.css");
+
 /* http://paulirish.com/2012/box-sizing-border-box-ftw/ */
 * {
 	-moz-box-sizing:border-box;
