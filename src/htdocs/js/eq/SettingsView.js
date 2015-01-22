@@ -46,17 +46,15 @@ define([
 
 			// HEADER
 			section = _this._el.appendChild(document.createElement('section'));
-			section.innerHTML = '<h1>' +
-					'MY SETTINGS' +
+			section.innerHTML = '<h2>My Settings</h2>' +
 					'<span class="help">' +
 						'Bookmark to return to map/list with same settings.' +
-					'</span>' +
-				'</h1>';
+					'</span>';
 
 
 			// EARTHQUAKES
 			section = _this._el.appendChild(document.createElement('section'));
-			section.appendChild(document.createElement('h2')).innerHTML = 'Earthquakes';
+			section.appendChild(document.createElement('h3')).innerHTML = 'Earthquakes';
 
 			_autoupdateView = new ToggleSettingView({
 				'settings': _options.settings,
@@ -92,16 +90,13 @@ define([
 
 			var _searchContainer = section.appendChild(
 					document.createElement('div'));
-			var _searchHelp = _searchContainer.appendChild(
-					document.createElement('span'));
 			var _searchButton = _searchContainer.appendChild(
 					document.createElement('button'));
 
 			Util.addClass(_searchContainer, 'settingsview-searchwrapper');
-			Util.addClass(_searchHelp, 'help');
 			Util.addClass(_searchButton, 'settingsview-searchbutton');
+			Util.addClass(_searchButton, 'green');
 
-			_searchHelp.innerHTML = 'Create new or edit existing search.';
 			_searchButton.innerHTML = 'Search Earthquake Archives';
 
 			Util.addEvent(_searchButton, 'click', function () {
@@ -112,7 +107,7 @@ define([
 
 			// LIST FORMAT
 			section = _this._el.appendChild(document.createElement('section'));
-			section.appendChild(document.createElement('h2')).innerHTML = 'List Format';
+			section.appendChild(document.createElement('h3')).innerHTML = 'List Format';
 			_listFormatView = new SettingView({
 				'settings': _options.settings,
 				'key': 'listFormat',
@@ -123,7 +118,7 @@ define([
 
 			// LIST SORT
 			section = _this._el.appendChild(document.createElement('section'));
-			section.appendChild(document.createElement('h2')).innerHTML = 'List Sort Order';
+			section.appendChild(document.createElement('h3')).innerHTML = 'List Sort Order';
 			_sortView = new SettingView({
 				'settings': _options.settings,
 				'key': 'sort',
@@ -146,7 +141,7 @@ define([
 
 			// MAP LAYERS
 			section = _this._el.appendChild(document.createElement('section'));
-			section.appendChild(document.createElement('h2')).innerHTML = 'Map Layers';
+			section.appendChild(document.createElement('h3')).innerHTML = 'Map Layers';
 			_basemapView = new SettingView({
 				'settings': _options.settings,
 				'key': 'basemap',
@@ -164,7 +159,7 @@ define([
 
 			// TIME ZONE
 			section = _this._el.appendChild(document.createElement('section'));
-			section.appendChild(document.createElement('h2')).innerHTML = 'Time Zone';
+			section.appendChild(document.createElement('h3')).innerHTML = 'Time Zone';
 			_timezoneView = new SettingView({
 				'settings': _options.settings,
 				'key': 'timeZone',
