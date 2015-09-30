@@ -46,7 +46,7 @@ define([
 
 			// HEADER
 			section = _this._el.appendChild(document.createElement('section'));
-			section.innerHTML = '<h2>My Settings</h2>' +
+			section.innerHTML = '<h3>My Settings</h3>' +
 					'<span class="help">' +
 						'Bookmark to return to map/list with same settings.' +
 					'</span>';

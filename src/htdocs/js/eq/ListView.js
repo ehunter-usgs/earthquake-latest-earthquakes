@@ -51,15 +51,15 @@ define([
 
 			el.innerHTML = [
 				'<header class="listHeader">',
-					'<h1 class="title"></h1>',
-					'<span>',
-						'<strong class="count"></strong> earthquakes - ',
-						'<a class="download" href="javascript:void(null);">Download</a>',
+					'<h3 class="title"></h3>',
+					'<span class="total">',
+						'<strong class="count"></strong> earthquakes in selected feed',
 					'</span>',
+					'<span class="showing"></span>',
+					'<a class="download" href="javascript:void(null);">Download</a>',
 					'<ul class="downloads"></ul>',
 					'<span class="updated"></span>',
 					'<span class="timezone"></span>',
-					'<span class="showing"></span>',
 				'</header>',
 				'<ol class="listContent"></ol>',
 				'<footer class="listFooter"></footer>'
@@ -319,7 +319,7 @@ define([
 			    i, len;
 
 			if (items.length === 0) {
-				markup.push('<p class="nodata">No earthquakes to display</p>');
+				markup.push('<li class="nodata">No earthquakes to display</li>');
 			} else {
 				for (i = 0, len = items.length; i < len; i++) {
 					markup.push(this._itemFormatter.generateListItemMarkup(items[i]));
@@ -330,7 +330,7 @@ define([
 
 		_generateListFooterMarkup: function () {
 			this._footer.innerHTML = [
-				'<h5>Didn\'t find what you were looking for?</h5>',
+				'<h3>Didn\'t find what you were looking for?</h3>',
 				'<ol class="help">',
 					'<li>',
 						'Change your &ldquo;Settings&rdquo; to view more ',
