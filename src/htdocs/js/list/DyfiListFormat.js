@@ -1,6 +1,7 @@
 'use strict';
 
-var Util = require('util/Util');
+var Formatter = require('core/Formatter'),
+    Util = require('util/Util');
 
 var _DEFAULTS = {};
 
@@ -20,7 +21,7 @@ var DyfiListFormat = function (options) {
 
   _initialize = function (options) {
     options = Util.extend({}, _DEFAULTS, options);
-    _formatter = options.formatter || {}; // TODO add Formatter
+    _formatter = options.formatter || Formatter();
     _className = options.className || null;
     _idprefix = options.idprefix || null;
     _settings = options.settings || null;
@@ -56,7 +57,7 @@ var DyfiListFormat = function (options) {
     mmi = properties.mmi;
 
     if (felt !== null) {
-      //mmi = _formatter.mmi(mmi); // TODO, use formatter _formatter.mmi(mmi)
+      mmi = _formatter.mmi(mmi);
       mmiClass = 'intensity mmi' + mmi;
 
       if (felt !== 1) {
@@ -84,8 +85,7 @@ var DyfiListFormat = function (options) {
           properties.title +
         '</span> ' +
         '<span class="time"> ' +
-          //_formatter.dateFromEvent(eq, _settings) + // TODO :: use formatter?
-          properties.time +
+          _formatter.datetime(properties.time) +
         '</span> ' +
         '<span class="responses">' +
           responses +
