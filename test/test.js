@@ -8,6 +8,8 @@ mocha.setup('bdd');
 require('./spec/ExampleTest');
 require('./spec/FormatterTest');
 
+require('./spec/list/DyfiListFormatTest');
+
 
 if (window.mochaPhantomJS) {
   window.mochaPhantomJS.run();
