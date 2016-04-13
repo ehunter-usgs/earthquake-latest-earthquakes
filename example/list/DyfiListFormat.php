@@ -22,4 +22,4 @@ if (!isset($TEMPLATE)) {
 }
 ?>
 
-<div id="dyfi-list-format-example"></div>
+<ul id="dyfi-list-format-example" class="listContent"></ul>

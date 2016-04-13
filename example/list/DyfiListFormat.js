@@ -4,16 +4,18 @@ var DyfiListFormat = require('list/DyfiListFormat'),
     Xhr = require('util/Xhr');
 
 Xhr.ajax({
-  url: '/etc/TODO.json',
-  success: function (eventData) {
-    var item;
+  url: '/feeds/2.5_week.json',
+  success: function (data) {
+    var dyfiListFormat,
+        markup;
 
-    item = null;
-    item = DyfiListFormat({
-      'data': eventData 
-    }).format();
+    dyfiListFormat = DyfiListFormat({
+      className: 'dyfi-list-format',
+      idprefix: 'listview-1'
+    })
+    markup = dyfiListFormat.format(data.features[0]);
 
-    document.querySelector('#dyfi-list-format-example').innerHTML = item;
+    document.querySelector('#dyfi-list-format-example').innerHTML = markup;
   },
   error: function () {
     document.querySelector('#dyfi-list-format-example').innerHTML = [
