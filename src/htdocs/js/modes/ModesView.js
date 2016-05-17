@@ -37,28 +37,104 @@ var ModesView = function (options) {
   };
 
   /**
-   * Adds selected class to icons when selected
+   * Determines if application is in mobile or desktop mode
+   * and then sets the view modes appropriately.
    *
    * @param objs {Array<Object>}
-   *    An array of objects each with an "id" attribute corresponding to the
-   *    "data-id" attribute of some element in `_this.content`.
+   *    An array of viewModes objects
    */
   _this.setSelected = function (objs) {
-    var el,
-        id;
-
     if (!objs) {
       return;
     }
 
-    objs.forEach(function (obj) {
-      id = obj.id;
-      el = _this.content.querySelector('[data-id="' + id + '"]');
+    if (_this.mobileCheck()) {
+      _this.setSelectedMobile(objs);
+    } else {
+      _this.setSelectedDesktop(objs);
+    }
+  };
 
-      if (el) {
-        el.classList.add('selected');
-      }
+  /**
+   * Sets the selected class on each viewMode for desktop
+   *
+   * @param objs {Array<Object>}
+   *    An array of viewModes objects
+   */
+  _this.setSelectedDesktop = function (objs) {
+    objs.forEach(function (obj) {
+      _this.setSelectedViewMode(obj);
     });
+  };
+
+  /**
+   * Sets the selected class on one viewMode for mobile, and
+   * updates 'viewModes' on the model.
+   *
+   * Loops through all of the selected view modes and sets the most
+   * "preferred" view mode. Only one view mode can be selected on mobile.
+   *
+   * @param objs {Array<Object>}
+   *    An array of viewModes objects
+   */
+  _this.setSelectedMobile = function (objs) {
+    var done,
+        mode,
+        modeOrder,
+        obj;
+
+    done = false;
+    modeOrder = [
+      'list',
+      'map',
+      'settings',
+      'help'
+    ];
+
+    if (objs.length === 1) {
+      _this.setSelectedViewMode(objs[0]);
+      return;
+    }
+
+    // loop through mode in the preferred order
+    for (var i = 0; i < modeOrder.length; i++) {
+      mode = modeOrder[i];
+
+      for (var x = 0; x < objs.length; x++) {
+        obj = objs[x];
+
+        if (mode === obj.id) {
+          // set selected
+          _this.updateMobileModel(obj);
+          // exit loop
+          done = true;
+          break;
+        }
+      }
+
+      if (done) {
+        break;
+      }
+    }
+  };
+
+  /**
+   * Adds the "selected" class to view modes when selected.
+   *
+   * @param obj {Object}
+   *    An object with an "id" attribute corresponding to the
+   *    "data-id" attribute of some element in `_this.content`.
+   */
+  _this.setSelectedViewMode = function  (obj) {
+    var el,
+        id;
+
+    id = obj.id;
+    el = _this.content.querySelector('[data-id="' + id + '"]');
+
+    if (el) {
+      el.classList.add('selected');
+    }
   };
 
   /**
