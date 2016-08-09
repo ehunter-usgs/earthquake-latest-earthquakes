@@ -92,6 +92,9 @@ var EventSummaryView = function (options) {
     _this.deselectEvent();
     _this.el.classList.remove('smoothing');
     _this.el.classList.remove('show');
+    window.setTimeout(function () {
+      _this.el.classList.add('hide');
+    }, 300);
     _isVisible = false;
   };
 
@@ -242,8 +245,11 @@ var EventSummaryView = function (options) {
    * Toggles the EventSummaryView into view.
    */
   _this.showEventSummary = function () {
+    _this.el.classList.remove('hide');
     _this.el.classList.add('smoothing');
-    _this.el.classList.add('show');
+    window.setTimeout(function () {
+      _this.el.classList.add('show');
+    }, 1);
     _isVisible = true;
   };
 

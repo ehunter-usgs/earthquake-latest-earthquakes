@@ -122,7 +122,9 @@ var LatestEarthquakes = function (options) {
           '</div>' +
         '</div>' +
         '<footer class="latest-earthquakes-footer">' +
-          '<div class="event-summary-view"></div>' +
+          '<div class="event-summary-view-container">' +
+            '<div class="event-summary-view"></div>' +
+          '</div>' +
         '</footer>';
 
     _content = el.querySelector('.latest-earthquakes-content');

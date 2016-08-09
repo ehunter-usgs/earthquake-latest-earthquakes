@@ -1,7 +1,9 @@
+.event-summary-view-container {
+  display: none;
+}
 
 .event-summary-view {
   bottom: -500px;
-  display: none;
   font-size: 0.88em;
   padding: 0.5em;
   position: absolute;
@@ -14,6 +16,10 @@
 
   &.show {
     bottom: 0;
+  }
+
+  &.hide {
+    display: none;
   }
 
   > .event-summary {
@@ -42,10 +48,11 @@
 .mode-list,
 .mode-map {
 
-  + .latest-earthquakes-footer > .event-summary-view {
+  + .latest-earthquakes-footer > .event-summary-view-container {
     display: block;
   }
 }
+
 
 @media screen and (min-width: 640px) {
   .event-summary-view {
