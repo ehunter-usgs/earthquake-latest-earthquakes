@@ -221,8 +221,41 @@ var SettingsView = function (options) {
   };
 
   _this.onSearchButtonClick = function () {
-    window.location = SEARCH_PATH + window.location.hash;
+    var hash;
+
+    if (SCENARIO_MODE) {
+      hash = _this.parseScenarioHash(Util.extend({}, _this.model.get('feed')));
+    } else {
+      hash = window.location.hash;
+    }
+
+    window.location = SEARCH_PATH + hash;
   };
+
+  /**
+   * Turn the scenario feed into a search object
+   *
+   * @param feed {Object}
+   *        _this.model.get('feed'), the currently selected feed object
+   * 
+   * @return {String}
+   *        The settings hash to load on the search page
+   */
+  _this.parseScenarioHash = function (feed) {
+    var obj;
+
+    try {
+      // unpack the URL and replace the search object with the feed object
+      obj = JSON.parse(decodeURIComponent(window.location.hash.substr(1)));
+      feed.id = new Date().getTime();
+      obj.search = feed;
+
+      return '#' +  encodeURIComponent(JSON.stringify(obj));
+    } catch (e) {
+      return window.location.hash;
+    }
+  };
+
 
   _initialize(options);
   options = null;
