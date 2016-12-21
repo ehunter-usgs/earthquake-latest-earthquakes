@@ -161,13 +161,12 @@ var MapView = function (options) {
     var badge;
 
     badge = document.createElement('div');
-    badge.classList.add(
-      'scenario-badge',
-      'leaflet-control',
-      'alert',
-      'warning'
-    );
+    badge.classList.add('scenario-badge');
+    badge.classList.add('leaflet-control');
+    badge.classList.add('alert');
+    badge.classList.add('warning');
     badge.innerHTML = 'Scenarios';
+
     _this.el.appendChild(badge);
   };
 
