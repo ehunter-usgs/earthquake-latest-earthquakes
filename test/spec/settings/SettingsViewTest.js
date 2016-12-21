@@ -1,4 +1,4 @@
-/* global afterEach, beforeEach, chai, describe, it, sinon */
+/* global afterEach, beforeEach, chai, describe, it */
 'use strict';
 
 
@@ -66,24 +66,6 @@ describe('SettingsView', function () {
       buttonText = settingsView.el.querySelector('.search-button').innerHTML;
 
       expect (buttonText).to.equal('Search Earthquake Catalog');
-    });
-
-    it('does not generates the search button in scenario mode', function () {
-      var view;
-
-      window.SCENARIO_MODE = true;
-
-      view = SettingsView({
-        el: document.createElement('div'),
-        config: LatestEarthquakesConfig(),
-        model: Model()
-      });
-      sinon.spy(view, 'renderSearchButton');
-      view.render();
-
-      expect(view.renderSearchButton.callCount).to.equal(0);
-
-      window.SCENARIO_MODE = false;
     });
 
     it('generates correct checkbox/radio option views in scenario mode',

@@ -77,12 +77,8 @@ var SettingsView = function (options) {
    * Frees resources associated with this view.
    */
   _this.destroy = Util.compose(function () {
-    // Checkes for scenario mode so that it does not try to destroy an event
-    // listener that was not created.
-    if (!SCENARIO_MODE) {
-      _searchButton.removeEventListener('click', _this.onSearchButtonClick,
-          _this);
-    }
+    _searchButton.removeEventListener('click', _this.onSearchButtonClick,
+        _this);
 
     _autoUpdateEl = null;
     _config = null;
@@ -106,11 +102,7 @@ var SettingsView = function (options) {
   _this.render = function () {
     _this.renderHeader();
     _this.renderContent();
-
-    // When in scenario mode does not show search button
-    if (!SCENARIO_MODE) {
-      _this.renderSearchButton();
-    }
+    _this.renderSearchButton();
   };
 
   _this.renderContent = function () {
