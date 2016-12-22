@@ -216,7 +216,7 @@ var SettingsView = function (options) {
     var hash;
 
     if (SCENARIO_MODE) {
-      hash = _this.parseScenarioHash(Util.extend({}, _this.model.get('feed')));
+      hash = _this.parseScenarioHash(Util.extend({}), _this.model.get('feed'));
     } else {
       hash = window.location.hash;
     }
@@ -229,7 +229,7 @@ var SettingsView = function (options) {
    *
    * @param feed {Object}
    *        _this.model.get('feed'), the currently selected feed object
-   * 
+   *
    * @return {String}
    *        The settings hash to load on the search page
    */
