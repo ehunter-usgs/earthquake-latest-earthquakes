@@ -1,5 +1,5 @@
 
-deploy:
+deploy_dist:
   stage: deploy
   script:
     - grunt dist
