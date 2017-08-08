@@ -1,7 +1,7 @@
-image: "node": 4.2.4
+image: node:4.2.4
 
 deploy_dist:
-  stage: deploy
+  stage: build
   script:
     - npm install
     - grunt dist
