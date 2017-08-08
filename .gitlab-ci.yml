@@ -1,10 +1,11 @@
-image: node:4.2.4
+image: usgs/hazdev-base-images:latest-node
 
 deploy_dist:
   stage: deploy
   script:
-    - npm config set strict-ssl false
-    - npm install
+    - ls -lh
+    - npm -v
+    - npm install --verbose
     - grunt dist
     - rsync -avz -e ssh --cvs-exclude --exclude=config.ini --exclude=httpd.conf --exclude=php.ini --checksum --delete dist/* hazdev@dev01-acquisition.cr.usgs.gov:/data/www/apps/earthquake-latest-earthquakes/.
     - rsync -avz -e ssh --cvs-exclude --exclude=config.ini --exclude=httpd.conf --exclude=php.ini --checksum --delete dist/* hazdev@dev02-acquisition.cr.usgs.gov:/data/www/apps/earthquake-latest-earthquakes/.
