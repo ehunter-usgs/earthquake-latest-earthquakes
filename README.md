@@ -1,6 +1,6 @@
 > **THIS PROJECT HAS BEEN ARCHIVED**
 > 
-> Please see [https://code.usgs.gov/ghsc/hazdev/legacy-latest-earthquakes](https://code.usgs.gov/ghsc/hazdev/legacy-latest-earthquakes)
+> Please see [https://code.usgs.gov/ghsc/geomag/geomag-web-absolutes](https://code.usgs.gov/ghsc/geomag/geomag-web-absolutes)
 
 earthquake-latest-earthquakes
 ==============
